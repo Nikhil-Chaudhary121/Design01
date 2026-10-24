@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cal_Sans } from "next/font/google";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 const calSans = Cal_Sans({
   variable: "--font-cal-sans", // Defines the CSS variable name
@@ -29,7 +30,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${calSans.variable} h-full antialiased`}
     >
-      <body  className={` ${calSans.className} min-h-full  flex flex-col`}>{children}</body>
+      <body  className={` ${calSans.className} min-h-full  flex flex-col`}>
+        <div className='min-h-screen bg-[#F9F9F9] overflow-x-hidden'>
+          <Navbar/>
+          {children}
+    </div></body>
     </html>
   );
 }
